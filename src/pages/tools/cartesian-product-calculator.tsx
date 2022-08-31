@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from '../../components/NavBar/NavBar';
 // import MathNavbar from "../../components/MathNavbar";
 // import ToolStart from "../../components/ToolStart";
 
@@ -254,7 +255,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
   render(): JSX.Element {
     return (
       <>
-        {/*<MathNavbar />*/}
+        {<NavBar />}
         {/*<ToolStart title={title} description={description} tabs={tabs} />*/}
         <div style={{paddingTop: '10px'}} />
         <div className="flex justify-start gap-3">
