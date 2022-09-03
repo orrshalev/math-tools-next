@@ -255,7 +255,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
   render(): JSX.Element {
     return (
       <>
-        {<NavBar />}
+        <NavBar />
         {/*<ToolStart title={title} description={description} tabs={tabs} />*/}
         <div style={{paddingTop: '10px'}} />
         <div className="flex justify-start gap-3">
