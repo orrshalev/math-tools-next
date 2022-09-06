@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from '../../components/NavBar/NavBar';
-// import MathNavbar from "../../components/MathNavbar";
-// import ToolStart from "../../components/ToolStart";
+import ToolStart from "../../components/ToolStart/ToolStart";
 
 /**
  * Information to fill accordion tabs
@@ -14,25 +13,7 @@ type Tab = {
 
 const tabs: Array<Tab> = [
   {
-    id: 0,
-    label: "Before you dive in",
-    description: (
-      <>
-        <p>
-          The following articles will be of use to have a fuller understanding
-          of this tool:
-        </p>
-        <ul>
-          <li>Sets</li>
-          <li>Set operations</li>
-          <li>Set builder notation</li>
-          <li>First order logic</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    id: 1,
+    id: 2,
     label: "Learn",
     description: (
       <>
@@ -72,7 +53,7 @@ const tabs: Array<Tab> = [
     ),
   },
   {
-    id: 2,
+    id: 3,
     label: "Examples",
     description: (
       <>
@@ -125,7 +106,7 @@ const tabs: Array<Tab> = [
     ),
   },
   {
-    id: 3,
+    id: 4,
     label: "How to use",
     description: (
       <>
@@ -184,13 +165,15 @@ class CartesianProductCalculator extends React.Component<any, State> {
     const sets = [];
     for (let i = 0; i < this.state.setNum; i++) {
       currentSet = (
-        <div>
-          <span>&emsp;Set {i + 1}: &#123; </span>
+        <div className="py-2 flex items-center">
+          <span className="font-large">&emsp;Set {i + 1}: </span>
+          <span className="font-large text-3xl pl-1 pr-2">&#123; </span>
           <textarea
+            className= "bg-gray-50 border border-gray-400 rounded mt-2 px-2 py-1 w-[30vw] h-10 resize-none text-center"
             placeholder={"Set ".concat((i + 1).toString())}
             onChange={(e) => this.changeVals(e.target.value, i)}
           />
-          <span> &#125;</span>
+          <span className="font-large text-3xl pl-2"> &#125;</span>
         </div>
       );
       sets.push(currentSet);
@@ -256,7 +239,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
     return (
       <>
         <NavBar />
-        {/*<ToolStart title={title} description={description} tabs={tabs} />*/}
+        <ToolStart title={title} description={description} tabs={tabs} />
         <div style={{paddingTop: '10px'}} />
         <div className="flex justify-start gap-3">
           <span className="font-small">Number of sets:</span>
@@ -289,6 +272,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
             +
           </button>
         </div>
+        <div style={{paddingTop: '10px'}} />
         {this.getSets()}
         <div style={{ height: "20px" }} />
         {this.calculateProduct()}
