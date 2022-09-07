@@ -13,7 +13,7 @@ type Tab = {
 
 const tabs: Array<Tab> = [
   {
-    id: 2,
+    id: 1,
     label: "Learn",
     description: (
       <>
@@ -53,7 +53,7 @@ const tabs: Array<Tab> = [
     ),
   },
   {
-    id: 3,
+    id: 2,
     label: "Examples",
     description: (
       <>
@@ -106,7 +106,7 @@ const tabs: Array<Tab> = [
     ),
   },
   {
-    id: 4,
+    id: 3,
     label: "How to use",
     description: (
       <>
@@ -165,7 +165,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
     const sets = [];
     for (let i = 0; i < this.state.setNum; i++) {
       currentSet = (
-        <div className="py-2 flex items-center">
+        <div className="py-2 flex items-center pl-[10%]">
           <span className="font-large">&emsp;Set {i + 1}: </span>
           <span className="font-large text-3xl pl-1 pr-2">&#123; </span>
           <textarea
@@ -232,7 +232,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
         cartString += "}";
       }
     }
-    return <p>{cartString}</p>;
+    return <p className="pl-[10%]">{cartString}</p>;
   }
 
   render(): JSX.Element {
@@ -241,7 +241,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
         <NavBar />
         <ToolStart title={title} description={description} tabs={tabs} />
         <div style={{paddingTop: '10px'}} />
-        <div className="flex justify-start gap-3">
+        <div className="flex justify-start gap-3 pl-[10%] py-3">
           <span className="font-small">Number of sets:</span>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-10 h-10 rounded"

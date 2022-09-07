@@ -10,3 +10,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Accordion.Mui-selected {
+  margin-left: 30px;
+}

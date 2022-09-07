@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
+import React, { Fragment } from "react";
+
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 /**
  * Contents of accordion tabs in tools
@@ -29,30 +29,29 @@ export type ToolProps = {
  * @returns HTML element of tool start
  */
 const ToolStart = (props: ToolProps) => {
-  const [open, setOpen] = useState(1);
-  const handleOpen = (val: number) => {
-    setOpen(open === val ? 0 : val);
-  };
-
   return (
     <>
-    <div>
-      <div className="py-3">
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
-      </div>
-      <div className="mx-3 border rounded">
+      <div className="flex flex-col items-center justify-center w-full h-full px-3">
+        <div className="py-3">
+          <h1 className="font-large text-5xl py-3">{props.title}</h1>
+          <p className="font-large text-3xl py-3">{props.description}</p>
+        </div>
         <Fragment>
           {props.tabs.map((tab) => (
-            <Accordion className="border px-4" key={tab.id} open={open === tab.id}>
-              <AccordionHeader onClick={() => handleOpen(tab.id)}>
+            <Accordion key={tab.id} className="w-[80vw]">
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`panel${tab.id}a-content`}
+                aria-label={`panel${tab.id}a-header`}
+              >
                 {tab.label}
-              </AccordionHeader>
-              <AccordionBody>{tab.description}</AccordionBody>
+              </AccordionSummary>
+              <AccordionDetails className="mx-5">
+                {tab.description}
+              </AccordionDetails>
             </Accordion>
           ))}
         </Fragment>
-      </div>
       </div>
     </>
   );
