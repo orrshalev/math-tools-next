@@ -25,9 +25,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <NavBar />
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
-        <NavBar />
-        <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700 font-large">
+        <h1 className="text-5xl pt-1 md:text-[5rem] leading-normal font-extrabold text-gray-700 font-large">
           Math Toolbox
         </h1>
         <p className="text-2xl text-gray-700 font-small">
@@ -37,26 +37,26 @@ const Home: NextPage = () => {
           <ToolCard
             name="Cartesian Product Calculator"
             image={cartesianPic}
-            description="Find in-depth information about Next.js features and API."
+            description="Calculate the Cartesian product of 2-10 sets."
             linkRef="/tools/cartesian-product-calculator"
           />
           <ToolCard
-            name="TypeScript"
+            name="Power Set Calculator"
             image={powerSetPic}
-            description="Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale"
-            linkRef="https://www.typescriptlang.org/"
+            description="Calculate the power set of a set."
+            linkRef="/tools/power-set-calculator"
           />
           <ToolCard
-            name="TailwindCSS"
+            name="Boolean Algebra"
             image={booleanPic}
-            description="Rapidly build modern websites without ever leaving your HTML"
-            linkRef="https://tailwindcss.com/"
+            description="Find the truth table of a boolean expression."
+            linkRef="/tools/boolean-algebra"
           />
           <ToolCard
-            name="Cartesian Product Calculator"
+            name="Number Base Converter"
             image={basePic}
-            description="Find in-depth information about Next.js features and API."
-            linkRef="/tools/cartesian-product-calculator"
+            description="Convert number bases 2-35"
+            linkRef="/tools/number-base-converter"
             />
         </div>
       </main>

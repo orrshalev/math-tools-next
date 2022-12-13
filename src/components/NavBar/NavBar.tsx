@@ -11,10 +11,10 @@ const NavBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
-    <nav className="h-20 bg-green-300">
+    <nav className="h-20 bg-green-500 flex justify-end items-center align-middle">
         {showSidebar ? (
           <button
-            className="flex text-4xl text-white items-center cursor-pointer z-50"
+            className="flex text-4xl text-white cursor-pointer z-50 pu-5 pr-5"
             onClick={() => setShowSidebar(!showSidebar)}
           >
             x
@@ -22,11 +22,11 @@ const NavBar = () => {
         ) : (
           <svg
             onClick={() => setShowSidebar(!showSidebar)}
-            className="z-30 flex items-center cursor-pointer"
-            fill="#2563EB"
+            className="z-30 flex items-center cursor-pointer pu-5 pr-5"
+            fill="ffffff"
             viewBox="0 0 100 80"
-            width="40"
-            height="40"
+            width="60"
+            height="60"
           >
             <rect width="100" height="10"></rect>
             <rect y="30" width="100" height="10"></rect>
