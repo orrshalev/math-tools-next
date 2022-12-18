@@ -31,6 +31,7 @@ export type ToolProps = {
 const ToolStart = (props: ToolProps) => {
   return (
     <>
+      <div className="py-10" />
       <div className="flex flex-col items-center justify-center w-full h-full px-3">
         <div className="py-3">
           <h1 className="font-large text-5xl py-3">{props.title}</h1>
