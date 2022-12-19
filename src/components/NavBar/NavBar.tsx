@@ -31,43 +31,46 @@ const NavBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
-      <nav className="h-20 w-full bg-green-500 px-2 py-4 fixed z-30">
-        <div className="container flex flex-wrap justify-between mx-auto">
+      <nav className="h-20 w-full bg-green-500 py-4 fixed z-30">
+        <div className="flex flex-wrap justify-between px-5">
           <Link href="/">
             <h1 className="flex font-large text-2xl text-gray-900">
               Math Toolbox
             </h1>
           </Link>
           {showSidebar ? (
-            <button
-              className="flex text-4xl text-black cursor-pointer z-60 pr-5"
-              onClick={() => setShowSidebar(!showSidebar)}
-            >
-              x
-            </button>
+            <></>
           ) : (
-              <svg
-                onClick={() => setShowSidebar(!showSidebar)}
-                className="z-60 inline-flex items-center cursor-pointer pu-5 pr-5"
-                fill="ffffff"
-                viewBox="0 0 100 80"
-                width="60"
-                height="60"
-              >
-                <rect width="100" height="10"></rect>
-                <rect y="30" width="100" height="10"></rect>
-                <rect y="60" width="100" height="10"></rect>
-              </svg>
+            <svg
+              onClick={() => setShowSidebar(!showSidebar)}
+              className="z-50 items-center cursor-pointer"
+              fill="ffffff"
+              viewBox="0 0 100 80"
+              width="60"
+              height="60"
+            >
+              <rect width="100" height="10"></rect>
+              <rect y="30" width="100" height="10"></rect>
+              <rect y="60" width="100" height="10"></rect>
+            </svg>
           )}
         </div>
       </nav>
       {/* Sidebar contents */}
       <div
-        className={`top-0 right-0 w-full md:w-[30vw] bg-green-600  p-10 pl-5 text-white fixed h-full z-40 ease-in-out duration-300 ${
+        className={`top-0 right-0 w-full md:w-[30vw] bg-green-600   px-5 text-white fixed h-full z-40 ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >
         <nav>
+          <div className="flex justify-end">
+            <button
+              className="text-6xl text-black cursor-pointer z-50 "
+              onClick={() => setShowSidebar(!showSidebar)}
+            >
+              x
+            </button>
+          </div>
           <ul className="mt-4">
             <Link href="/">
               {/* None dropdown */}
@@ -157,14 +160,14 @@ const NavBar = () => {
               </Menu>
             </li>
             <Link href="/about">
-            <li className="py-2">
-              <button
-                className="bg-white w-[90%] text-gray-700 px-3 py-2 rounded-md font-medium text-sm"
-                aria-current="page"
-              >
-               About 
-              </button>
-            </li>
+              <li className="py-2">
+                <button
+                  className="bg-white w-[90%] text-gray-700 px-3 py-2 rounded-md font-medium text-sm"
+                  aria-current="page"
+                >
+                  About
+                </button>
+              </li>
             </Link>
           </ul>
         </nav>

@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import NavBar from "../../components/NavBar/NavBar";
 import ToolStart from "../../components/ToolStart/ToolStart";
 
@@ -238,24 +239,35 @@ class PowerSetCalculator extends React.Component<any, State> {
   render(): JSX.Element {
     return (
       <>
+        <Head>
+          <title>Power Set Calculator</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <NavBar />
-        <ToolStart title={title} description={description} tabs={tabs} />
-        <div style={{ paddingTop: "10px" }} />
-        <div className="flex justify-start gap-3 pl-[10%] py-3">
-          <span className="font=small py-3">Set:</span>
-          <span className="font-large text-3xl my-[0.3rem] pl-1 pr-2">&#123; </span>
-          <textarea
-            className="bg-gray-50 border border-gray-400 rounded mt-2 px-2 py-1 w-[30vw] h-10 resize-none text-center"
-            placeholder={"Set"}
-            onChange={(e) => this.handleInputChange(e.target.value)}
-          ></textarea>
-          <span className="font-large text-3xl pl-2 my-[0.3rem]"> &#125;</span>
-        </div>
-        <div style={{ paddingTop: "10px" }} />
-        <p style={{ paddingLeft: "10%", marginRight: "30px" }}>
-          {this.displayPowerSet()}
-        </p>
-        <div style={{ height: "40px" }} />
+        <main>
+          <ToolStart title={title} description={description} tabs={tabs} />
+          <div style={{ paddingTop: "10px" }} />
+          <div className="flex justify-start gap-3 pl-[10%] py-3">
+            <span className="font=small py-3">Set:</span>
+            <span className="font-large text-3xl my-[0.3rem] pl-1 pr-2">
+              &#123;{" "}
+            </span>
+            <textarea
+              className="bg-gray-50 border border-gray-400 rounded mt-2 px-2 py-1 w-[30vw] h-10 resize-none text-center"
+              placeholder={"Set"}
+              onChange={(e) => this.handleInputChange(e.target.value)}
+            ></textarea>
+            <span className="font-large text-3xl pl-2 my-[0.3rem]">
+              {" "}
+              &#125;
+            </span>
+          </div>
+          <div style={{ paddingTop: "10px" }} />
+          <p style={{ paddingLeft: "10%", marginRight: "30px" }}>
+            {this.displayPowerSet()}
+          </p>
+          <div style={{ height: "40px" }} />
+        </main>
       </>
     );
   }

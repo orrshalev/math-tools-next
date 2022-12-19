@@ -1,5 +1,6 @@
 import React from "react";
-import NavBar from '../../components/NavBar/NavBar';
+import Head from "next/head";
+import NavBar from "../../components/NavBar/NavBar";
 import ToolStart from "../../components/ToolStart/ToolStart";
 
 /**
@@ -169,7 +170,7 @@ class CartesianProductCalculator extends React.Component<any, State> {
           <span className="font-large">&emsp;Set {i + 1}: </span>
           <span className="font-large text-3xl pl-1 pr-2">&#123; </span>
           <textarea
-            className= "bg-gray-50 border border-gray-400 rounded mt-2 px-2 py-1 w-[30vw] h-10 resize-none text-center"
+            className="bg-gray-50 border border-gray-400 rounded mt-2 px-2 py-1 w-[30vw] h-10 resize-none text-center"
             placeholder={"Set ".concat((i + 1).toString())}
             onChange={(e) => this.changeVals(e.target.value, i)}
           />
@@ -238,45 +239,52 @@ class CartesianProductCalculator extends React.Component<any, State> {
   render(): JSX.Element {
     return (
       <>
+        <Head>
+          <title>Cartesian Product Calculator</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <NavBar />
-        <ToolStart title={title} description={description} tabs={tabs} />
-        <div style={{paddingTop: '10px'}} />
-        <div className="flex justify-start gap-3 pl-[10%] py-3">
-          <span className="font-small">Number of sets:</span>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-10 h-10 rounded"
-            onClick={() =>
-              this.state.setNum > 2
-                ? this.setState((state, props) => ({
-                    setNum: state.setNum - 1,
-                  }))
-                : null
-            }
-          >
-            -
-          </button>
-          <textarea 
-            value={this.state.setNum} 
-            className="bg-gray-200 border border-gray-400 rounded px-2 py-1 w-10 h-10 resize-none text-center"
-            readOnly />
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() =>
-              this.state.setNum < 10
-                ? this.setState((state, props) => ({
-                    setNum: state.setNum + 1,
-                  }))
-                : null
-            }
-          >
-            +
-          </button>
-        </div>
-        <div style={{paddingTop: '10px'}} />
-        {this.getSets()}
-        <div style={{ height: "20px" }} />
-        {this.calculateProduct()}
-        <div style={{ height: "50px" }} />
+        <main>
+          <ToolStart title={title} description={description} tabs={tabs} />
+          <div style={{ paddingTop: "10px" }} />
+          <div className="flex justify-start gap-3 pl-[10%] py-3">
+            <span className="font-small">Number of sets:</span>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-10 h-10 rounded"
+              onClick={() =>
+                this.state.setNum > 2
+                  ? this.setState((state, props) => ({
+                      setNum: state.setNum - 1,
+                    }))
+                  : null
+              }
+            >
+              -
+            </button>
+            <textarea
+              value={this.state.setNum}
+              className="bg-gray-200 border border-gray-400 rounded px-2 py-1 w-10 h-10 resize-none text-center"
+              readOnly
+            />
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() =>
+                this.state.setNum < 10
+                  ? this.setState((state, props) => ({
+                      setNum: state.setNum + 1,
+                    }))
+                  : null
+              }
+            >
+              +
+            </button>
+          </div>
+          <div style={{ paddingTop: "10px" }} />
+          {this.getSets()}
+          <div style={{ height: "20px" }} />
+          {this.calculateProduct()}
+          <div style={{ height: "50px" }} />
+        </main>
       </>
     );
   }

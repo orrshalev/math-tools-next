@@ -27,6 +27,7 @@ const Home: NextPage = () => {
 
       <NavBar />
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+        <div className="py-7" />
         <h1 className="text-5xl pt-1 md:text-[5rem] leading-normal font-extrabold text-gray-700 font-large">
           Math Toolbox
         </h1>

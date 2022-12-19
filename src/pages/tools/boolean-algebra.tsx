@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { Dictionary, Stack } from "typescript-collections";
 import NavBar from "../../components/NavBar/NavBar";
 import ToolStart from "../../components/ToolStart/ToolStart";
@@ -564,7 +565,12 @@ class BooleanAlgebra extends React.Component<any, State> {
   render(): JSX.Element {
     return (
       <>
+      <Head>
+        <title>Boolean Algebra</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
         <NavBar />
+        <main>
         <ToolStart title={title} description={description} tabs={tabs} />
         <div style={{ height: "30px" }} />
         <div className="flex justify-start gap-3 pl-[10%] py-3">
@@ -591,6 +597,7 @@ class BooleanAlgebra extends React.Component<any, State> {
         {this.displayBoolTable()}
         </div>
         <div style={{ height: "40px" }} />
+        </main>
       </>
     );
   }
